@@ -20,6 +20,7 @@ searchButton.addEventListener('click',()=>{
         .then(data => displayImage(data.hits))
     }
     loadData()
+    slide.innerHTML = '';
     const displayImage = images =>{
         gallary.textContent = '';
         console.log(images);
@@ -63,7 +64,7 @@ const img = document.createElement('img');
 const durotion = document.getElementById('durotion');
 
 img.classList= 'img-fluid img-thumbnail mx-auto'
-const sliderOn = (time:1000)=>{
+const sliderOn = (time)=>{
     setInterval(()=>{
         // sliderImg
         if(i === sliderImg.length){
@@ -77,7 +78,7 @@ const sliderOn = (time:1000)=>{
 }
 
 sliderButton.addEventListener('click',()=>{
-    const durotionValue = durotion.value;
+    const durotionValue = durotion.value || 1000;
     sliderOn(durotionValue);
     gallary.textContent = '';
     // console.log(durotionValue);
